@@ -11,7 +11,7 @@ mod basic_1 {
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
         let my_account = &mut ctx.accounts.my_account;
         my_account.data = 0;
-        let f = 3.7_f32;
+        let _f = 3.7_f32;   
         Ok(())
     }
 
@@ -23,13 +23,13 @@ mod basic_1 {
 
     pub fn increment(ctx: Context<Increment>, data: u64) -> Result<()> {
         let my_account = &mut ctx.accounts.my_account;
-        my_account.data = data;
+        my_account.data = my_account.data + data;
         Ok(())
     }
 
     pub fn decrement(ctx: Context<Decrement>, data: u64) -> Result<()> {
         let my_account = &mut ctx.accounts.my_account;
-        my_account.data = data;
+        my_account.data = my_account.data - data;
         Ok(())
     }
 
