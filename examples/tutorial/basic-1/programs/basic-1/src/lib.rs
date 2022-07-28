@@ -8,7 +8,7 @@ mod basic_1 {
 
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
         let my_account = &mut ctx.accounts.my_account;
-        my_account.data = data;
+        my_account.data = 0;
         Ok(())
     }
 
