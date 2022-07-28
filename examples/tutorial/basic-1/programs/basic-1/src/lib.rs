@@ -1,5 +1,7 @@
 use anchor_lang::prelude::*;
 
+use std::f32::consts;
+
 declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 
 #[program]
@@ -9,6 +11,7 @@ mod basic_1 {
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
         let my_account = &mut ctx.accounts.my_account;
         my_account.data = 0;
+        let f = 3.7_f32;
         Ok(())
     }
 
