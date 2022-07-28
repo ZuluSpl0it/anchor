@@ -6,7 +6,7 @@ declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 mod basic_1 {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>, data: u64) -> Result<()> {
+    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
         let my_account = &mut ctx.accounts.my_account;
         my_account.data = data;
         Ok(())
@@ -17,6 +17,19 @@ mod basic_1 {
         my_account.data = data;
         Ok(())
     }
+
+    pub fn increment(ctx: Context<Increment>, data: u64) -> Result<()> {
+        let my_account = &mut ctx.accounts.my_account;
+        my_account.data = data;
+        Ok(())
+    }
+
+    pub fn decrement(ctx: Context<Decrement>, data: u64) -> Result<()> {
+        let my_account = &mut ctx.accounts.my_account;
+        my_account.data = data;
+        Ok(())
+    }
+
 }
 
 #[derive(Accounts)]
@@ -30,6 +43,18 @@ pub struct Initialize<'info> {
 
 #[derive(Accounts)]
 pub struct Update<'info> {
+    #[account(mut)]
+    pub my_account: Account<'info, MyAccount>,
+}
+
+#[derive(Accounts)]
+pub struct Increment<'info> {
+    #[account(mut)]
+    pub my_account: Account<'info, MyAccount>,
+}
+
+#[derive(Accounts)]
+pub struct Decrement<'info> {
     #[account(mut)]
     pub my_account: Account<'info, MyAccount>,
 }
