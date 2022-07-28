@@ -2,7 +2,7 @@ use anchor_lang::prelude::*;
 
 //use std::f32::consts;
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("3VgZ7GLwsKV9XQ9j1cYoB5wpPwRp7h2oSzBPnWauxLA6");
 
 #[program]
 mod basic_1 {
